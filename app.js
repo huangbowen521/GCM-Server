@@ -18,6 +18,12 @@ app.get('/ap/close', function(req, res) {
     })
 })
 
+app.post('/register', function (req, res) {
+    var registerStorage = require('./registerStorage');
+    registerStorage.save(req.body.regId);
+
+})
+
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
