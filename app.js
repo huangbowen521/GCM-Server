@@ -16,13 +16,19 @@ app.get('/ap/close', function(req, res) {
     gcmSender.send('close', function(result) {
         res.send(result);
     })
-})
+});
 
 app.post('/register', function (req, res) {
     var registerStorage = require('./registerStorage');
-    registerStorage.save(req.body.regId);
+//    registerStorage.save(req.params);
+//    console.log(req);
+    console.log("dddd");
+    res.send('ddddd');
+});
 
-})
+app.post('/unregister', function(req,res) {
+   console.log('success');
+});
 
 
 var port = process.env.PORT || 5000;
