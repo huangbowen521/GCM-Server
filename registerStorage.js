@@ -40,7 +40,19 @@ registerStorage.getIds = function () {
 
     var content = require(outputFilename);
     return content;
-}
+};
+
+registerStorage.remove = function (val) {
+    var IDs = registerStorage.getIds();
+    IDs = IDs.splice(IDs.indexOf(val), 1);
+    fs.writeFile(outputFilename, JSON.stringify(IDs), function (err) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("JSON saved to " + outputFilename);
+        }
+    });
+};
 
 module.exports = registerStorage;
 
