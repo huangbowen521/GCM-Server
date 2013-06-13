@@ -1,9 +1,8 @@
 var gcm = require('node-gcm');
-
+var registerStorage = require('./registerStorage');
 var sender = new gcm.Sender('AIzaSyAw31eeTS1CKtFFAfkVqSPlAG6AESKe4VM');
-var registrationIds = [ ];
+var registrationIds = registerStorage.getIds();
 
-registrationIds.push('APA91bFNnbdMN44rdqunPJdu7WLGGbRFiTTOz-XB4LVIyKMUqsGPNSQY707HUuChK8PzWqamiJy_eYDvcMOsRrRAEySgkKKFXjBR-IEWH2jOpfSChCe54subuu2mBzIEyyvzvjbPFCSaeyWaJn5mzJR1ebiHfa1FpUHcSOjXX7i9UgC3VbkW3fM');
 
 var gcmSender = {};
 gcmSender.send = function(msg, callback) {
